@@ -1,4 +1,4 @@
-# CI de Nível 01 - Disparo Manual a partir de 1 clique (One-CLick Deploy)
+# CI de Nível 01 - Disparo Manual a partir de 1 clique
 
 # Nome que vai aparecer nas opções de pipe
 name: 'Execução manual'
