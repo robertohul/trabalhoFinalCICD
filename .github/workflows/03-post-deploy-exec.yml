@@ -1,14 +1,14 @@
 # CI de Nível 03 - Disparo Automático sempre em que outro for concluído, como deploy
 
 # Nome que vai aparecer nas opções de pipe
-name: 'Execução por deploy'
+name: "Execução por deploy"
 
 # Triggers OU gatilhos de execução
 # Gatilho após outro workflow = workflow_run
 
 on:
   workflow_run:
-    workflows: ['Execução manual']
+    workflows: ["Execução manual"]
     types:
       - completed
 
@@ -16,7 +16,7 @@ jobs:
   #descrição do job
   e2e-tests:
     #maquina que o job vai executar
-    runs-on: ['ubuntu-latest']
+    runs-on: ["ubuntu-latest"]
 
     #passo-a-passo das ações do job
     steps:

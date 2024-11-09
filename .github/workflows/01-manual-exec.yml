@@ -1,7 +1,7 @@
 # CI de Nível 01 - Disparo Manual a partir de 1 clique
 
 # Nome que vai aparecer nas opções de pipe
-name: 'Execução manual'
+name: "Execução manual"
 
 # Triggers OU gatilhos de execução
 # Gatilho de exec manual = workflow_dispatch
@@ -13,7 +13,7 @@ jobs:
   #descrição do job
   e2e-tests:
     #maquina que o job vai executar
-    runs-on: ['ubuntu-latest']
+    runs-on: ["ubuntu-latest"]
 
     #passo-a-passo das ações do job
     steps:
