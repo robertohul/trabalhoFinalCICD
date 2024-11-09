@@ -1,0 +1,41 @@
+# CI de Nível 03 - Disparo Automático sempre em que outro for concluído, como deploy
+
+# Nome que vai aparecer nas opções de pipe
+name: 'Execução por deploy'
+
+# Triggers OU gatilhos de execução
+# Gatilho após outro workflow = workflow_run
+
+on:
+  workflow_run:
+    workflows: ['Execução manual']
+    types:
+      - completed
+
+jobs:
+  #descrição do job
+  e2e-tests:
+    #maquina que o job vai executar
+    runs-on: ['ubuntu-latest']
+
+    #passo-a-passo das ações do job
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalando Yarn
+        run: npm install -g yarn
+
+      - name: Instalando Dependências
+        run: yarn
+
+      - name: Instalando Cypress
+        run: yarn cypress install
+
+      - name: Testes E2E
+        run: yarn run e2e
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: relatorio-de-testes
+          path: ./cypress/reports
